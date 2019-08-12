@@ -5,6 +5,7 @@ class LinkedListNode
     @value = value
     @next = next_node
   end
+end
 
 def print_values(list_node)
   if list_node
@@ -16,14 +17,23 @@ def print_values(list_node)
   end
 end
 
+def reverse_list,(list, previous=nil)
+  current_head = list.next_node
+  list.next_node = previous
+  if current_head
+    reverse_list(current_head, list)
+  else
+    list
+  end
+end
+
+
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
 node3 = LinkedListNode.new(12, node2)
 
+
 print_values(node3)
-
 puts "-------"
-
 revlist = reverse_list(node3)
-
 print_values(revlist)
