@@ -4,13 +4,15 @@
     <body>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script>
-        var pageHasLoaded = function() {
-          var h2Element = $('h2');
-          h2Element.html("Today is pretty neat")
-        };
-
-        //pageHasLoaded();
-        $(pageHasLoaded);
+        $(function() {
+              var h2Element = $('h2');
+              var times = 0;
+              h2Element.html("I got clicked" +times+ "times");
+              h2Element.click(function() {
+                times = times + 1;
+                h2Element.html("I just got clicked" +times+"times");      
+          });
+        });
       </script>
       <h1 class="headline">Hi there!</h1>
       <h2 class="headline"> See you later!</h2>
